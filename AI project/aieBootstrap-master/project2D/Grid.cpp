@@ -6,6 +6,34 @@
 #define OFFSET_X 100.0f
 #define OFFSET_Y 100.0f
 
+void Swap(Node* xp, Node* yp)
+{
+	Node* temp = xp;
+	xp = yp;
+	yp = temp;
+}
+
+void BubbleSort(std::vector<Node*> list)
+{
+	bool swapped;
+	for (int i = 0; i < list.size() - 1; i++)
+	{
+		swapped = false;
+		for (int j = 0; j < list.size() - i - 1; j++)
+		{
+			if (list[j]->m_nFScore > list[j + 1]->m_nFScore)
+			{
+				Swap(list[j], list[j + 1]);
+				swapped = true;
+			}
+		}
+		if (!swapped)
+		{
+			break;
+		}
+	}
+}
+
 Grid::Grid()
 {
 	for (int x = 0; x < GRID_X; ++x)
@@ -77,9 +105,62 @@ Grid::~Grid()
 	}
 }
 
-std::vector<Vector2> Grid::GetPath(Vector2 v2Start, Vector2 v2End, bool AStar)
+std::vector<Node*> Grid::GetPath(Vector2 v2Start, Vector2 v2End, bool AStar)
 {
-	return std::vector<Vector2>();
+	std::vector<Node*> openList;
+	std::vector<Node*> closedList;
+	Node* startNode = GetNodeByPos(v2Start);
+	Node* endNode = GetNodeByPos(v2End);
+	std::vector<Node*> path;
+
+	if (startNode != nullptr && endNode != nullptr)
+	{
+		Node* currentNode;
+		startNode->m_pPrev = nullptr;
+		openList.push_back(startNode);
+		while (!openList.empty())
+		{
+			BubbleSort(openList);
+			currentNode = openList.front();
+
+			if (currentNode == endNode)
+			{
+				break;
+			}
+
+			openList.erase(openList.begin());
+			closedList.push_back(currentNode);
+
+			for (int i = 0; i < NEIGHBOUR_COUNT; i++)
+			{
+				if(currentNode->m_Neighbours[i])
+			}
+		}
+
+	//return std::vector<Vector2>();
+	}
+	else
+	{
+		return path;
+	}
+}
+
+Node* Grid::GetNodeByPos(Vector2 v2Pos)
+{
+	int xPos = (int)((v2Pos.x - OFFSET_X) / (NODE_SIZE + GRID_SPACING));
+	int yPos = (int)((v2Pos.y - OFFSET_Y) / (NODE_SIZE + GRID_SPACING));
+
+	if (xPos >= 0 && yPos >= 0 && xPos < GRID_X && yPos < GRID_Y)
+	{
+		Node* result;
+		result = m_Nodes[xPos][yPos];
+
+		return result;
+	}
+	else
+	{
+		return nullptr;
+	}
 }
 
 void Grid::Draw(aie::Renderer2D * pRenderer)

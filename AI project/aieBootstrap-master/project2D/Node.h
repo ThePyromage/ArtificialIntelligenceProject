@@ -13,7 +13,6 @@ struct Node
 	int m_nGSCore;
 	int m_nHScore;
 
-	int m_nCost;
 	bool m_bBlocked;
 };
 
