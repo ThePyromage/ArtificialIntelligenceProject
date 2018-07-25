@@ -5,6 +5,7 @@
 #define GRID_SPACING 2.0f
 #define OFFSET_X 100.0f
 #define OFFSET_Y 100.0f
+#define GSCORE_COST 1
 
 void Swap(Node* xp, Node* yp)
 {
@@ -105,15 +106,15 @@ Grid::~Grid()
 	}
 }
 
-std::vector<Node*> Grid::GetPath(Vector2 v2Start, Vector2 v2End, bool AStar)
+std::vector<Vector2> Grid::GetPath(Vector2 v2Start, Vector2 v2End, bool AStar)
 {
 	std::vector<Node*> openList;
 	std::vector<Node*> closedList;
 	Node* startNode = GetNodeByPos(v2Start);
 	Node* endNode = GetNodeByPos(v2End);
-	std::vector<Node*> path;
+	std::vector<Vector2> path;
 
-	if (startNode != nullptr && endNode != nullptr)
+	if (startNode != nullptr && endNode != nullptr && !startNode->m_bBlocked && !endNode->m_bBlocked)
 	{
 		Node* currentNode;
 		startNode->m_pPrev = nullptr;
@@ -133,14 +134,44 @@ std::vector<Node*> Grid::GetPath(Vector2 v2Start, Vector2 v2End, bool AStar)
 
 			for (int i = 0; i < NEIGHBOUR_COUNT; i++)
 			{
-				if(currentNode->m_Neighbours[i])
+				if (currentNode->m_Neighbours[i] != nullptr)
+				{
+					if (!currentNode->m_Neighbours[i]->m_bBlocked)
+					{
+						if (std::find(closedList.begin(), closedList.end(), currentNode->m_Neighbours[i]) == closedList.end())
+						{
+							if (std::find(openList.begin(), openList.end(), currentNode->m_Neighbours[i]) == openList.end())
+							{
+								openList.push_back(currentNode->m_Neighbours[i]);
+								currentNode->m_Neighbours[i]->m_nGScore = currentNode->m_nGScore + GSCORE_COST;
+								currentNode->m_Neighbours[i]->m_pPrev = currentNode;
+							}
+							else
+							{
+								if (currentNode->m_Neighbours[i]->m_nGScore > (currentNode->m_nGScore + GSCORE_COST))
+								{
+									currentNode->m_Neighbours[i]->m_nGScore = currentNode->m_nGScore + GSCORE_COST;
+									currentNode->m_Neighbours[i]->m_pPrev = currentNode;
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 
-	//return std::vector<Vector2>();
+		currentNode = endNode;
+		while (currentNode != nullptr)
+		{
+			path.push_back(currentNode->m_v2Pos);
+			currentNode = currentNode->m_pPrev;
+		}
+		printf("valid path\n");
+		return path;
 	}
 	else
 	{
+		printf("invalid path\n");
 		return path;
 	}
 }

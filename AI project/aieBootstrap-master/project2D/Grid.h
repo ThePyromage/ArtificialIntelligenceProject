@@ -16,7 +16,7 @@ public:
 	Grid();
 	~Grid();
 
-	std::vector<Node*> GetPath(Vector2 v2Start, Vector2 v2End, bool AStar);
+	std::vector<Vector2> GetPath(Vector2 v2Start, Vector2 v2End, bool AStar);
 	Node* GetNodeByPos(Vector2 v2Pos);
 
 	void Draw(aie::Renderer2D* pRenderer);

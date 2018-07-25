@@ -10,7 +10,7 @@ struct Node
 	Node* m_pPrev;
 
 	int m_nFScore;
-	int m_nGSCore;
+	int m_nGScore;
 	int m_nHScore;
 
 	bool m_bBlocked;

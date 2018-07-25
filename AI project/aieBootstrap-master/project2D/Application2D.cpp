@@ -25,7 +25,7 @@ bool Application2D::startup() {
 
 	m_SeekBehaviour = new SeekBehaviour;
 	m_pGrid = new Grid;
-	m_pPlayer = new Agent(m_shipTexture, Vector2(500, 400), 1.3f);
+	m_pPlayer = new Agent(m_shipTexture, Vector2(500, 400), 1.3f, m_pGrid);
 	m_pPlayer->AddBehaviour(m_SeekBehaviour);
 	
 	m_cameraX = 0;
