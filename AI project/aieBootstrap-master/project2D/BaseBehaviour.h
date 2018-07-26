@@ -1,5 +1,13 @@
 #pragma once
-class Agent;
+
+enum eBehaviourResult
+{
+	SUCCESS,
+	FAILURE,
+	RUNNING
+};
+
+class GameObject;
 
 class BaseBehaviour
 {
@@ -7,6 +15,6 @@ public:
 	BaseBehaviour();
 	virtual ~BaseBehaviour();
 
-	virtual void Update(Agent* agent, float deltaTime) = 0;
+	virtual eBehaviourResult Update(GameObject* agent, float deltaTime) = 0;
 };
 

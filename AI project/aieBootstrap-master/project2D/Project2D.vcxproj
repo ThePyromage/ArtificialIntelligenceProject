@@ -167,7 +167,9 @@
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="Application2D.cpp" />
     <ClCompile Include="BaseBehaviour.cpp" />
+    <ClCompile Include="BaseState.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="FiniteStateMachine.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="main.cpp" />
@@ -178,6 +180,10 @@
     <ClInclude Include="Agent.h" />
     <ClInclude Include="Application2D.h" />
     <ClInclude Include="BaseBehaviour.h" />
+    <ClInclude Include="BaseState.h" />
+    <ClInclude Include="FiniteStateMachine.h" />
+    <ClInclude Include="Transition.h" />
+    <ClInclude Include="Condition.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Grid.h" />

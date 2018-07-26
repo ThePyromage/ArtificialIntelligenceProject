@@ -5,7 +5,7 @@
 #define GRID_SPACING 2.0f
 #define OFFSET_X 100.0f
 #define OFFSET_Y 100.0f
-#define GSCORE_COST 1
+#define GSCORE_COST 10
 
 void Swap(Node* xp, Node* yp)
 {
@@ -106,6 +106,16 @@ Grid::~Grid()
 	}
 }
 
+int Grid::GetHScore(Node* pCurrent, Node* pEnd)
+{
+	Vector2 distance;
+	distance = pCurrent->m_v2Pos - pEnd->m_v2Pos;
+	float magnitude = distance.magnitude();
+	magnitude /= NODE_SIZE;
+	magnitude *= GSCORE_COST;
+	return (int)magnitude;
+}
+
 std::vector<Vector2> Grid::GetPath(Vector2 v2Start, Vector2 v2End, bool AStar)
 {
 	std::vector<Node*> openList;
@@ -144,6 +154,9 @@ std::vector<Vector2> Grid::GetPath(Vector2 v2Start, Vector2 v2End, bool AStar)
 							{
 								openList.push_back(currentNode->m_Neighbours[i]);
 								currentNode->m_Neighbours[i]->m_nGScore = currentNode->m_nGScore + GSCORE_COST;
+								currentNode->m_Neighbours[i]->m_nHScore = GetHScore(currentNode, endNode);
+								if(AStar)
+									currentNode->m_Neighbours[i]->m_nFScore = currentNode->m_Neighbours[i]->m_nGScore + currentNode->m_Neighbours[i]->m_nHScore;
 								currentNode->m_Neighbours[i]->m_pPrev = currentNode;
 							}
 							else

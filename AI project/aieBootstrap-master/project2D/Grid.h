@@ -16,6 +16,7 @@ public:
 	Grid();
 	~Grid();
 
+	int GetHScore(Node* pCurrent, Node* pEnd);
 	std::vector<Vector2> GetPath(Vector2 v2Start, Vector2 v2End, bool AStar);
 	Node* GetNodeByPos(Vector2 v2Pos);
 

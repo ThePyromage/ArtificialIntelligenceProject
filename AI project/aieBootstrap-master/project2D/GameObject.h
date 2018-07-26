@@ -18,13 +18,20 @@ public:
 	void SetPosition(Vector2 v2Pos);
 	Vector2 GetPosition();
 
+	Vector2 GetVelocity();
+	void SetVelocity(Vector2 v2Velocity);
+	float GetMaxSpeed();
+
 	void SetRotation(float fRotRadian);
 	float GetRotation();
 
 protected:
+
+	Vector2 m_v2Velocity;
 	Matrix3 m_LocalTransform;
 	Matrix3 m_GlobalTransform;
 	float m_fRotation;
+	float m_fMaxSpeed;
 
 	GameObject* m_parent;
 

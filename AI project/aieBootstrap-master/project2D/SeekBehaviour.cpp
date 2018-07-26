@@ -13,7 +13,7 @@ SeekBehaviour::~SeekBehaviour()
 {
 }
 
-void SeekBehaviour::Update(Agent * pAgent, float deltaTime)
+eBehaviourResult SeekBehaviour::Update(GameObject * pAgent, float deltaTime)
 {
 	aie::Input* pInput = aie::Input::getInstance();
 	Vector2 v2MousePos;
@@ -29,4 +29,6 @@ void SeekBehaviour::Update(Agent * pAgent, float deltaTime)
 	Vector2 v2Force = v2Dir - pAgent->GetVelocity();
 
 	pAgent->SetVelocity(pAgent->GetVelocity() + v2Force * deltaTime);
+
+	return eBehaviourResult::SUCCESS;
 }

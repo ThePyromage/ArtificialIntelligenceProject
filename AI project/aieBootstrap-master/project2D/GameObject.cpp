@@ -47,6 +47,21 @@ Vector2 GameObject::GetPosition()
 	return result;
 }
 
+Vector2 GameObject::GetVelocity()
+{
+	return m_v2Velocity;
+}
+
+void GameObject::SetVelocity(Vector2 v2Velocity)
+{
+	m_v2Velocity = v2Velocity;
+}
+
+float GameObject::GetMaxSpeed()
+{
+	return m_fMaxSpeed;
+}
+
 void GameObject::SetRotation(float fRotRadian)
 {
 	m_fRotation = fRotRadian;

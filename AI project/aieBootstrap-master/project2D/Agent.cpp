@@ -5,9 +5,9 @@
 
 Agent::Agent(aie::Texture* pTexture, Vector2 v2pos, float fRotRadian, Grid* grid) : GameObject(pTexture, v2pos, fRotRadian)
 {
-	m_fMaxSpeed = 500.0f;
+	m_fMaxSpeed = 1000.0f;
 	m_pGrid = grid;
-	m_path = grid->GetPath(Vector2(200, 200), Vector2(400, 400), false);
+	m_path = grid->GetPath(Vector2(200, 200), Vector2(400, 400), true);
 }
 
 
@@ -40,20 +40,7 @@ void Agent::Draw(aie::Renderer2D * m_2dRenderer)
 	m_2dRenderer->drawSpriteTransformed3x3(m_Sprite, (float*)m_GlobalTransform);
 }
 
-Vector2 Agent::GetVelocity()
-{
-	return m_v2Velocity;
-}
 
-void Agent::SetVelocity(Vector2 v2Velocity)
-{
-	m_v2Velocity = v2Velocity;
-}
-
-float Agent::GetMaxSpeed()
-{
-	return m_fMaxSpeed;
-}
 
 void Agent::AddBehaviour(BaseBehaviour * pBehaviour)
 {

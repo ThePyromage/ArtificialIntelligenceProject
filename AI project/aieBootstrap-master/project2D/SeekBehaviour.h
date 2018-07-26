@@ -7,6 +7,6 @@ public:
 	SeekBehaviour();
 	virtual ~SeekBehaviour();
 
-	void Update(Agent* pAgent, float deltaTime);
+	eBehaviourResult Update(GameObject* pAgent, float deltaTime);
 };
 
