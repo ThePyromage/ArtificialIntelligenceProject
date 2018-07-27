@@ -7,6 +7,7 @@
 class Agent;
 class SeekBehaviour;
 class Grid;
+class FiniteStateMachine;
 
 class Application2D : public aie::Application {
 public:

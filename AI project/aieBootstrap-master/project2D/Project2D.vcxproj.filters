@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\StateMachine">
+      <UniqueIdentifier>{5e2d3ebc-5b07-4025-a51a-5adfb4cac207}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\StateMachine">
+      <UniqueIdentifier>{a3a61f65-4017-4d8d-a246-22d50d36bdfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Behaviours">
+      <UniqueIdentifier>{1d482eb2-cb0c-4903-8e5f-e02017a84851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Behaviours">
+      <UniqueIdentifier>{827f015a-089c-43c4-9bdc-aabbe54df320}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application2D.cpp">
@@ -27,15 +39,6 @@
     <ClCompile Include="Agent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BaseBehaviour.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SeekBehaviour.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -43,10 +46,19 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BaseState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\StateMachine</Filter>
     </ClCompile>
     <ClCompile Include="FiniteStateMachine.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\StateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="FleeBehaviour.cpp">
+      <Filter>Source Files\Behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseBehaviour.cpp">
+      <Filter>Source Files\Behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekBehaviour.cpp">
+      <Filter>Source Files\Behaviours</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -59,15 +71,6 @@
     <ClInclude Include="Agent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BaseBehaviour.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SeekBehaviour.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -75,16 +78,19 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BaseState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Condition.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Transition.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\StateMachine</Filter>
     </ClInclude>
     <ClInclude Include="FiniteStateMachine.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseBehaviour.h">
+      <Filter>Header Files\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="FleeBehaviour.h">
+      <Filter>Header Files\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekBehaviour.h">
+      <Filter>Header Files\Behaviours</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

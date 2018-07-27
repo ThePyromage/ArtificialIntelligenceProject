@@ -5,6 +5,7 @@
 #include "Agent.h"
 #include "SeekBehaviour.h"
 #include "Grid.h"
+#include "FiniteStateMachine.h"
 
 Application2D::Application2D() {
 
