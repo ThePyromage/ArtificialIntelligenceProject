@@ -1,5 +1,7 @@
 #include "Grid.h"
 #include "Node.h"
+#include "GameObject.h"
+#include <Input.h>
 #include <stdlib.h>
 
 #define GRID_SPACING 2.0f
@@ -205,6 +207,11 @@ Node* Grid::GetNodeByPos(Vector2 v2Pos)
 	{
 		return nullptr;
 	}
+}
+
+void Grid::Update(GameObject* agent, float deltaTime)
+{
+
 }
 
 void Grid::Draw(aie::Renderer2D * pRenderer)
