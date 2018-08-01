@@ -193,8 +193,8 @@ std::vector<Vector2> Grid::GetPath(Vector2 v2Start, Vector2 v2End, bool AStar)
 
 Node* Grid::GetNodeByPos(Vector2 v2Pos)
 {
-	int xPos = (int)((v2Pos.x - OFFSET_X) / (NODE_SIZE + GRID_SPACING));
-	int yPos = (int)((v2Pos.y - OFFSET_Y) / (NODE_SIZE + GRID_SPACING));
+	int xPos = (int)((v2Pos.x - OFFSET_X) / (NODE_SIZE));
+	int yPos = (int)((v2Pos.y - OFFSET_Y) / (NODE_SIZE));
 
 	if (xPos >= 0 && yPos >= 0 && xPos < GRID_X && yPos < GRID_Y)
 	{

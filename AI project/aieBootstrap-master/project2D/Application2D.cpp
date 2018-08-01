@@ -24,10 +24,8 @@ bool Application2D::startup() {
 
 	m_font = new aie::Font("./font/consolas.ttf", 32);
 
-	m_SeekBehaviour = new SeekBehaviour;
 	m_pGrid = new Grid;
 	m_pPlayer = new Agent(m_shipTexture, Vector2(500, 400), 1.3f, m_pGrid);
-	m_pPlayer->AddBehaviour(m_SeekBehaviour);
 	
 	m_cameraX = 0;
 	m_cameraY = 0;
@@ -42,7 +40,6 @@ void Application2D::shutdown() {
 	delete m_texture;
 	delete m_shipTexture;
 	delete m_2dRenderer;
-	delete m_SeekBehaviour;
 	delete m_pPlayer;
 	delete m_pGrid;
 }
@@ -55,7 +52,7 @@ void Application2D::update(float deltaTime) {
 	aie::Input* input = aie::Input::getInstance();
 
 	// use arrow keys to move camera
-	if (input->isKeyDown(aie::INPUT_KEY_UP))
+	/*if (input->isKeyDown(aie::INPUT_KEY_UP))
 		m_cameraY += 500.0f * deltaTime;
 
 	if (input->isKeyDown(aie::INPUT_KEY_DOWN))
@@ -65,7 +62,7 @@ void Application2D::update(float deltaTime) {
 		m_cameraX -= 500.0f * deltaTime;
 
 	if (input->isKeyDown(aie::INPUT_KEY_RIGHT))
-		m_cameraX += 500.0f * deltaTime;
+		m_cameraX += 500.0f * deltaTime;*/
 
 	m_pPlayer->Update(deltaTime);
 
@@ -80,7 +77,7 @@ void Application2D::draw() {
 	clearScreen();
 
 	// set the camera position before we begin rendering
-	m_2dRenderer->setCameraPos(m_cameraX, m_cameraY);
+	//m_2dRenderer->setCameraPos(m_cameraX, m_cameraY);
 
 	// begin drawing sprites
 	m_2dRenderer->begin();
