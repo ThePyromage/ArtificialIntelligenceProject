@@ -45,6 +45,9 @@
     <ClCompile Include="Grid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BaseState.cpp">
+      <Filter>Source Files\StateMachine</Filter>
+    </ClCompile>
     <ClCompile Include="FiniteStateMachine.cpp">
       <Filter>Source Files\StateMachine</Filter>
     </ClCompile>
@@ -56,12 +59,6 @@
     </ClCompile>
     <ClCompile Include="SeekBehaviour.cpp">
       <Filter>Source Files\Behaviours</Filter>
-    </ClCompile>
-    <ClCompile Include="FleeState.cpp">
-      <Filter>Source Files\StateMachine</Filter>
-    </ClCompile>
-    <ClCompile Include="SeekState.cpp">
-      <Filter>Source Files\StateMachine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,12 +91,6 @@
     </ClInclude>
     <ClInclude Include="SeekBehaviour.h">
       <Filter>Header Files\Behaviours</Filter>
-    </ClInclude>
-    <ClInclude Include="FleeState.h">
-      <Filter>Header Files\StateMachine</Filter>
-    </ClInclude>
-    <ClInclude Include="SeekState.h">
-      <Filter>Header Files\StateMachine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

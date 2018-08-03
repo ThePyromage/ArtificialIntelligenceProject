@@ -167,15 +167,14 @@
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="Application2D.cpp" />
     <ClCompile Include="BaseBehaviour.cpp" />
+    <ClCompile Include="BaseState.cpp" />
     <ClCompile Include="FiniteStateMachine.cpp" />
     <ClCompile Include="FleeBehaviour.cpp" />
-    <ClCompile Include="FleeState.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="SeekBehaviour.cpp" />
-    <ClCompile Include="SeekState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agent.h" />
@@ -184,12 +183,10 @@
     <ClInclude Include="BaseState.h" />
     <ClInclude Include="FiniteStateMachine.h" />
     <ClInclude Include="FleeBehaviour.h" />
-    <ClInclude Include="FleeState.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="SeekBehaviour.h" />
-    <ClInclude Include="SeekState.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

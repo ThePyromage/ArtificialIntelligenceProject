@@ -4,7 +4,6 @@
 #include "Vector2.h"
 
 struct Node;
-class GameObject;
 
 #define GRID_X 25
 #define GRID_Y 25
@@ -21,7 +20,6 @@ public:
 	std::vector<Vector2> GetPath(Vector2 v2Start, Vector2 v2End, bool AStar);
 	Node* GetNodeByPos(Vector2 v2Pos);
 
-	void Update(GameObject* agent, float deltaTime);
 	void Draw(aie::Renderer2D* pRenderer);
 
 	Node* m_Nodes[GRID_X][GRID_Y];

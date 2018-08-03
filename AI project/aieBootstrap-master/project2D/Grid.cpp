@@ -1,7 +1,5 @@
 #include "Grid.h"
 #include "Node.h"
-#include "GameObject.h"
-#include <Input.h>
 #include <stdlib.h>
 
 #define GRID_SPACING 2.0f
@@ -193,8 +191,8 @@ std::vector<Vector2> Grid::GetPath(Vector2 v2Start, Vector2 v2End, bool AStar)
 
 Node* Grid::GetNodeByPos(Vector2 v2Pos)
 {
-	int xPos = (int)((v2Pos.x - OFFSET_X) / (NODE_SIZE));
-	int yPos = (int)((v2Pos.y - OFFSET_Y) / (NODE_SIZE));
+	int xPos = (int)((v2Pos.x - OFFSET_X) / (NODE_SIZE + GRID_SPACING));
+	int yPos = (int)((v2Pos.y - OFFSET_Y) / (NODE_SIZE + GRID_SPACING));
 
 	if (xPos >= 0 && yPos >= 0 && xPos < GRID_X && yPos < GRID_Y)
 	{
@@ -207,11 +205,6 @@ Node* Grid::GetNodeByPos(Vector2 v2Pos)
 	{
 		return nullptr;
 	}
-}
-
-void Grid::Update(GameObject* agent, float deltaTime)
-{
-
 }
 
 void Grid::Draw(aie::Renderer2D * pRenderer)
